@@ -34,9 +34,16 @@ export class LoginComponent implements OnInit {
 		// Get Access token from Local Storgae.
 		this.userAccessToken = this._tokenManager.retrieve();
 
-		// Get User Details corresponding to the user;
 		this._gameUserService.getGameUser().subscribe((res) =>{
 			console.log(res);
+			if(!res.ec_id){
+				// User is not registered for the game
+				this.show_RegisterForm();
+			}else{
+				this.user = res;
+				console.log(this.user);
+			}
+
 		}, (error)=>{
 			this.doFacebookLogin().then((r)=>{
 				this._gameUserService.getGameUser().subscribe((result) => {
@@ -47,6 +54,7 @@ export class LoginComponent implements OnInit {
 			})
 		})
   }
+  
 	authenticate(fb_token: string): Promise<any>{
     return new Promise<any>((resolve, reject) =>{
     	this._userService.authenticate(fb_token).subscribe((res) => {
@@ -81,19 +89,10 @@ export class LoginComponent implements OnInit {
 		      });
 		    }else if(resp.status == 'not_authorized') {
 		    	console.log("not_authorized");
-		      // Delete any garbage cookies
-		      // this.unSetToken();
-		      //  You must authorize before you can continue
-		      // this.RegisterButtonClick();
+	  			this.show_LoginForm("invalid_credentials");
 		    }else{
-		      // Delete any garbage cookies
-		      // this.unSetToken();
 		      console.log("Unkonown Status");
-		      this._facebookService.login().then((response: FacebookLoginResponse) => {
-		        // this.statusChangeCallback(response); 
-		      }, (error) => {
-		        console.log(error);
-		      });
+	  			this.show_LoginForm("invalid_credentials");
 		    }
 	  	});
 	  })
@@ -102,6 +101,7 @@ export class LoginComponent implements OnInit {
   show_RegisterForm(){
   	this.showRegisterForm = true;
   	this.showLoginForm = false;
+  	console.log("Register form shown");
   }
 
   show_LoginForm(msg:string){
