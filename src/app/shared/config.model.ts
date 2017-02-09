@@ -10,7 +10,7 @@ function getBaseAPIUrl(){
 	if(environment.production) {
 		return "http://eclectika.org/api/";
 	}else{
-		return "http://localhost/eclectika2017-backend-laravel/"; 
+		return "http://localhost/auth-api/public/"; 
 	}	
 }
 
