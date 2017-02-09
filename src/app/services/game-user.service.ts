@@ -11,10 +11,13 @@ export class GameUserService {
   _token: string;
   constructor( private http: Http, private _tokenmanager: TokenManager) { 
     this._url = GlobalConfig.BASE_API_URL;
+  }
+  setToken(){
     this._token = "?token=" + this._tokenmanager.retrieve();
   }
-
   getGameUser(){
+    this.setToken();
+    console.log(this._token);
   	return this.http.get(this._url +'api/user'+this._token)
   	.map(res => res.json());
   }
