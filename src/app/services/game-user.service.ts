@@ -18,7 +18,7 @@ export class GameUserService {
   getGameUser(){
     this.setToken();
     console.log(this._token);
-  	return this.http.get(this._url +'api/user'+this._token)
+  	return this.http.get(this._url +'api/game/user'+this._token)
   	.map(res => res.json());
   }
 }
