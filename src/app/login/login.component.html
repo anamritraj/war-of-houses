@@ -1,3 +1,21 @@
-<p>
-  login works!
-</p>
+<div class="col-md-6 offset-sm-3">
+	<br><br>
+	<h3 class="text-center">Login</h3>
+	<p  class="text-center">Click the button below to login to the Game</p>
+
+	<div class="text-center">
+	  <button class="btn btn-primary" (click)=LoginFormSubmit()>Login With Facebook</button><br><br>
+	</div>	
+
+
+	<form class="registration-form form-horizontal" hidden >
+		<div class="form-group">
+		    <input type="email" class="form-control text-center" id="email" name="user.email" [(ngModel)] = "user.house_name" aria-describedby="emailHelp" placeholder="Enter a Unique name for your House!">
+		</div>
+
+		<div class="text-center">
+		  <button type="submit" class="btn btn-primary">Submit</button><br><br>
+	      <a routerLink="/register">Not registered? Click here</a>
+		</div>
+	</form>
+</div>
