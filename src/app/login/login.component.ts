@@ -74,6 +74,26 @@ export class LoginComponent implements OnInit {
   }
 
 
+  getNewJWTToken(resp: FacebookAuthResponse): Promise<any>{
+	  return new Promise<any>((resolve, reject) =>{
+	  	console.log("Getting a new JWT Token from the server.")
+	  	this.authenticate(resp.accessToken).then((res) =>{
+	    	this._tokenManager.store(res);
+	  		console.log("JWT Token saved.");
+	  		resolve(true);
+	    },(error) => {
+	  		if(error.error == "invalid_credentials") {
+	  			console.log('Token ok, user is not in database.');
+	  			resolve(true);
+	  		}else if(error.error == "access_token_invalid"){
+	  			console.log('Token is invalid');
+	  			resolve(true);
+	  		}
+	  		this.show_LoginForm(error.error);
+	    });
+	    reject("Unknown Error Occured in getNewJWTToken() reject");
+	  })
+  };
 
   alreadyLoggedIn(): Promise<any>{
     return new Promise<any>((resolve, reject) =>{
