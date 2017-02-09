@@ -9,7 +9,7 @@ export class TokenManager{
 	private tokenKey:string = 'user_token';
 
 	public store(content: string) {
-        localStorage.setItem(this.tokenKey, JSON.stringify(content));
+        localStorage.setItem(this.tokenKey, content);
     }
 
     public retrieve(): string{
@@ -20,16 +20,4 @@ export class TokenManager{
     public deleteToken(){
         localStorage.setItem(this.tokenKey, null);
     }
-
-    public createAuthorizationHeader(headers: Headers) {
-        let accessToken:string;
-        accessToken = this.retrieve().accessToken;
-
-        if(accessToken) {
-            headers.append('Authorization', 'Bearer  ' + accessToken);
-        }else{
-            headers.append('Authorization', 'Bearer  ');
-        }
-    }
-
 }
