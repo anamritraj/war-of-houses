@@ -8,20 +8,28 @@ import 'rxjs/add/operator/map';
 
 export class UserService {
   _url: string;
+  _token: string;
   constructor( private http: Http, private _tokenmanager: TokenManager) { 
     this._url = GlobalConfig.BASE_API_URL;
   }
-  
+
+  setToken(){
+    this._token = "?token=" + this._tokenmanager.retrieve();
+  }
   authenticate(fb_access_token: string){
     return this.http.post(this._url +'api/authenticate', {'access_token': fb_access_token})
     .map(res => res.json());
   }
 
   getAllUsers(){
-    let headers = new Headers();
-
-  	return this.http.get(this._url +'user', {headers: headers})
+  	return this.http.get(this._url +'user')
   	.map(res => res.json());
+  }
+
+  getUser(){
+    this.setToken();
+    return this.http.get(this._url +'user' + this._token)
+    .map(res => res.json()); 
   }
 
   registerUser(user){
@@ -30,10 +38,8 @@ export class UserService {
   }
 
   updateUserEvent(user){
-    let headers = new Headers();
-
     let url = this._url +"user/events/"+user.ec_id;
-    return this.http.put(url, user, {headers:headers})
+    return this.http.put(url, user)
       .map(res => res.json());
   }
 }
