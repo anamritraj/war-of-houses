@@ -8,18 +8,22 @@
 
 		<div class="text-center">
 		  <a class="btn btn-primary" href="http://eclectika.org/user">Login With Facebook</a><br><br>
-		</div>			
+		</div>
 	</div>
 
 <div class="col-md-6 offset-sm-3">
+	<h3 class="text-center">Register for WAR OF HOUSES</h3>
+	<br><br>
 	<form class="registration-form form-horizontal" *ngIf="showRegisterForm">
-		<div class="form-group">
-		    <input type="email" class="form-control text-center" id="email" name="user.email" [(ngModel)] = "user.house_name" aria-describedby="emailHelp" placeholder="Enter a Unique name for your House!">
+		<div class="form-group" [ngClass]="{'has-danger' : registerErrors.house_name || registerErrors.ec_id}">
+		    <input type="text" autocomplete="disable" class="form-control text-center" id="email" name="user.email" [(ngModel)] = "house_name" aria-describedby="emailHelp" placeholder="Enter a Unique name for your House!">
+		    <div class="form-control-feedback ">{{registerErrors.house_name}} {{ registerErrors.ec_id }}</div>
 		</div>
 
 		<div class="text-center">
-		  <button type="submit" class="btn btn-primary">Submit</button><br><br>
-	      <a routerLink="/register">Not registered? Click here</a>
+		  <button type="submit" class="btn btn-primary" (click)=registerClick()>Submit</button><br><br>
+	      <a routerLink="/register">Not registered? Click here</a>s
 		</div>
 	</form>
 </div>
+{{user.ec_id}}
