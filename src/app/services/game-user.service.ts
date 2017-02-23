@@ -12,13 +12,21 @@ export class GameUserService {
   constructor( private http: Http, private _tokenmanager: TokenManager) { 
     this._url = GlobalConfig.BASE_API_URL;
   }
+  
   setToken(){
     this._token = "?token=" + this._tokenmanager.retrieve();
   }
+
   getGameUser(){
     this.setToken();
-    console.log(this._token);
   	return this.http.get(this._url +'api/game/user'+this._token)
   	.map(res => res.json());
+  }
+
+  register(house_name: string){
+    console.log(house_name);
+   this.setToken();
+    return this.http.post(this._url +'api/game/user'+this._token, { house_name: house_name })
+    .map(res => res.json());
   }
 }
