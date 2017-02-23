@@ -1,0 +1,22 @@
+.overall-points{
+  padding: 5px 0;
+  border-bottom: 1px solid #e4e4e4;
+}
+
+.btn{
+  cursor: pointer;
+}
+
+.claim-buttons .btn{
+  min-width:170px;
+  display: inline-block !important;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.claim-buttons .badge{
+  position: relative;
+  top:1px;
+  padding:0.6em;
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+}
