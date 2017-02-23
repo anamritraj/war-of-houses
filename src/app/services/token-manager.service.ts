@@ -1,23 +1,22 @@
 import { Injectable } from '@angular/core';
-import { Http, Headers } from '@angular/http';
 
 @Injectable()
 
 export class TokenManager{
-	constructor (private http: Http){ }
+  constructor (){ }
 
-	private tokenKey:string = 'user_token';
+  private tokenKey:string = 'user_token';
 
-	public store(content: string) {
-        localStorage.setItem(this.tokenKey, content);
-    }
+  public store(content: string) {
+    localStorage.setItem(this.tokenKey, content);
+  }
 
-    public retrieve(): string{
-        let storedToken:string = localStorage.getItem(this.tokenKey);
-        return storedToken;
-    }
+  public retrieve(): string{
+    let storedToken:string = localStorage.getItem(this.tokenKey);
+    return storedToken;
+  }
 
-    public deleteToken(){
-        localStorage.setItem(this.tokenKey, null);
-    }
+  public deleteToken(){
+    localStorage.setItem(this.tokenKey, null);
+  }
 }
