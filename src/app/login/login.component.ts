@@ -19,6 +19,8 @@ export class LoginComponent implements OnInit {
 	showRegisterForm: boolean;
 	registerErrors: Object;
 	house_name: string;
+	user = new User();
+
   constructor(
   	private _facebookService:FacebookService,
   	private _tokenManager: TokenManager,
