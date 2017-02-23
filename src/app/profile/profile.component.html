@@ -1,3 +1,15 @@
-<p>
-  profile works!
-</p>
+<br>
+<app-notifications [showNotification]="true" [message]="'Looks Like You have Registered!'" [title]="'Hi Brown Cow!'" [type]="'danger'"></app-notifications>
+<div class="row">
+  <div class="col-md-4">
+    <app-user-card [user]="user"></app-user-card>
+  </div>
+  <div class="col-md-8">
+    <div class="card card-outline-primary">
+      <div class="card-block">
+        This is some text within a card block.
+      </div>
+    </div>
+  </div>
+</div>
+<br>
