@@ -11,14 +11,21 @@ import { FooterComponent } from './footer/footer.component';
 import { LoginComponent } from './login/login.component';
 import {SlimLoadingBarModule} from "ng2-slim-loading-bar";
 import { ProfileComponent } from './profile/profile.component';
+import { NotificationsComponent } from './notifications/notifications.component';
+
+import { UserCardComponent } from './user-card/user-card.component';
+
 
 @NgModule({
   declarations: [
+    NotificationsComponent,
     AppComponent,
     HeaderComponent,
     FooterComponent,
     LoginComponent,
-    ProfileComponent
+    ProfileComponent,
+
+    UserCardComponent
   ],
   imports: [
     BrowserModule,
