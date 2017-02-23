@@ -11,14 +11,17 @@ export class User{
 	wall:number;
 	attack:number;
 	defence:number;
+	fb_id: string;
 	fb_access_token: string;
 	can_be_attacked:number;
 	last_turn_refreshed:number;
+
 
 	constructor(){
 		this.ec_id = null;
 		this.house_name = null;
 		this.name = null;
+		this.fb_id = null;
 		this.food = null;
 		this.gold = null;
 		this.wood = null;
@@ -31,5 +34,9 @@ export class User{
 		this.fb_access_token = null;
 		this.can_be_attacked = null;
 		this.last_turn_refreshed = null;
+	}
+
+	setuser(user : User){
+		this.user = user;
 	}
 };
