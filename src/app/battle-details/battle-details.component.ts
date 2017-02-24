@@ -143,6 +143,9 @@ export class BattleDetailsComponent implements OnInit {
           this.user.food = res.food;
           this.user.gold = res.gold;
           this.user.wood = res.wood;
+          this.user.attack = res.attack;
+          this.user.defence = res.defence;
+          this.user.overall_points = res.overall_points;
           this.user.army = res.army;
         },err =>{
           if(err.status == 406){
@@ -161,6 +164,9 @@ export class BattleDetailsComponent implements OnInit {
           this.user.food = res.food;
           this.user.gold = res.gold;
           this.user.wood = res.wood;
+          this.user.attack = res.attack;
+          this.user.defence = res.defence;
+          this.user.overall_points = res.overall_points;
           this.user.giants = res.giants;
         },err =>{
           if(err.status == 406){
@@ -179,6 +185,9 @@ export class BattleDetailsComponent implements OnInit {
           this.user.food = res.food;
           this.user.gold = res.gold;
           this.user.wood = res.wood;
+          this.user.attack = res.attack;
+          this.user.defence = res.defence;
+          this.user.overall_points = res.overall_points;
           this.user.wall = res.wall;
         },err =>{
           if(err.status == 406){
@@ -197,6 +206,9 @@ export class BattleDetailsComponent implements OnInit {
           this.user.food = res.food;
           this.user.gold = res.gold;
           this.user.wood = res.wood;
+          this.user.attack = res.attack;
+          this.user.defence = res.defence;
+          this.user.overall_points = res.overall_points;
           this.user.dragons = res.dragons;
         },err =>{
           if(err.status == 406){
@@ -212,4 +224,44 @@ export class BattleDetailsComponent implements OnInit {
     return;
   }
 
+  increaseWorker(type: number){
+    this._gameService.increaseWorker(type).subscribe(res => {
+      console.log(res);
+      this.user.workers = res.workers;
+      switch (type){
+        case 1:
+          this.user.food_x = res.food_x;
+          break;
+        case 2:
+          this.user.gold_x = res.gold_x;
+          break;
+        case 3:
+          this.user.wood_x = res.wood_x;
+          break;
+      }
+    }, error => {
+      console.log(error);
+    })
+  }
+
+  decreaseWorker(type: number){
+    this._gameService.decreaseWorker(type).subscribe(res => {
+      console.log(res);
+      this.user.workers = res.workers;
+      switch (type){
+        case 1:
+          this.user.food_x = res.food_x;
+          break;
+        case 2:
+          this.user.gold_x = res.gold_x;
+          break;
+        case 3:
+          this.user.wood_x = res.wood_x;
+          break;
+      }
+    }, error => {
+      console.log(error);
+    })
+
+  }
 }

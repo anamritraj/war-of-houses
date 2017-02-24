@@ -1,6 +1,6 @@
 <div class="card">
   <div class="card-block">
-    <p class="text-center overall-points">Overall Points: 11133.34</p>
+    <p class="text-center overall-points">Overall Points: {{user.overall_points}}</p>
     <div class="row text-center battle-points">
       <div class="col-md-6">
         <p class="my-0">Attack Points: {{user.attack}}</p>
@@ -48,6 +48,38 @@
         <button class="btn btn-primary btn-sm d-block my-1 mr-0" (click)="createWorker()">Create New Worker</button><span class="badge badge-default">3x</span>
       </div>
     </div>
+    <hr>
+    <div class="row text-center battle-points">
+      <div class="col-md-4">
+        <div class="worker-widget">
+          <button class="btn btn-primary btn-sm my-1 mr-0" (click)="decreaseWorker(1)">-</button>
+          <p class="d-inline-block">{{user.food_x}}</p>
+          <button class="btn btn-primary btn-sm my-1 mr-0" (click)="increaseWorker(1)">+</button>
+        </div>
+        <p>Food Workers</p>
+      </div>
+
+      <div class="col-md-4">
+        <div class="worker-widget">
+          <button class="btn btn-primary btn-sm my-1 mr-0" (click)="decreaseWorker(2)">-</button>
+          <p class="d-inline-block">{{user.gold_x}}</p>
+          <button class="btn btn-primary btn-sm my-1 mr-0" (click)="increaseWorker(2)">+</button>
+        </div>
+        <p>Gold Workers</p>
+      </div>
+
+      <div class="col-md-4">
+        <div class="worker-widget">
+          <button class="btn btn-primary btn-sm my-1 mr-0" (click)="decreaseWorker(3)">-</button>
+          <p class="d-inline-block">{{user.wood_x}}</p>
+          <button class="btn btn-primary btn-sm my-1 mr-0" (click)="increaseWorker(3)">+</button>
+        </div>
+        <p>Wood Workers</p>
+      </div>
+
+    </div>
+
+
 
 
   </div>

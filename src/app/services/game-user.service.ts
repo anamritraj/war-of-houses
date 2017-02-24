@@ -80,6 +80,37 @@ export class GameUserService {
       .map(res => res.json());
   }
 
+  increaseWorker(type:number){
+    this.setToken();
+    switch (type){
+      case 1: // Food Increment
+        return this.http.get(this._url +'api/game/increase-worker/food' + this._token)
+          .map(res => res.json());
+      case 2: // Gold increment
+        return this.http.get(this._url +'api/game/increase-worker/gold' + this._token)
+          .map(res => res.json());
+      case 3: // Wood increment
+        return this.http.get(this._url +'api/game/increase-worker/wood' + this._token)
+          .map(res => res.json());
+
+    }
+  }
+  decreaseWorker(type:number){
+    this.setToken();
+    switch (type){
+      case 1: // Food Increment
+        return this.http.get(this._url +'api/game/decrease-worker/food' + this._token)
+          .map(res => res.json());
+      case 2: // Gold increment
+        return this.http.get(this._url +'api/game/decrease-worker/gold' + this._token)
+          .map(res => res.json());
+      case 3: // Wood increment
+        return this.http.get(this._url +'api/game/decrease-worker/wood' + this._token)
+          .map(res => res.json());
+
+    }
+  }
+
   register(house_name: string){
     console.log(house_name);
    this.setToken();
