@@ -19,15 +19,15 @@ export class User{
   last_food: string;
   last_gold: string;
   last_wood: string;
+  last_worker: string;
 
   turns:number;
   last_turn_refreshed:number;
 
   workers:number;
-  last_worker:string;
 
   army:number;
-  artillery:number;
+  giants:number;
   wall:number;
   dragons:number;
 

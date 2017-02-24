@@ -23,13 +23,12 @@ export class GameUserService {
   	.map(res => res.json());
   }
 
-
+  //Claim Functions
   claimFood(){
     this.setToken();
     return this.http.get(this._url +'api/game/claim-food' + this._token)
       .map(res => res.json());
   }
-
 
   claimGold(){
     this.setToken();
@@ -45,9 +44,33 @@ export class GameUserService {
   }
 
   claimTurns(){
-
     this.setToken();
     return this.http.get(this._url +'api/game/claim-turns' + this._token)
+      .map(res => res.json());
+  }
+
+  //Train Functions
+  trainArmy(){
+    this.setToken();
+    return this.http.get(this._url +'api/game/train-army' + this._token)
+      .map(res => res.json());
+  }
+
+  trainGiant(){
+    this.setToken();
+    return this.http.get(this._url +'api/game/train-giant' + this._token)
+      .map(res => res.json());
+  }
+
+  trainWall(){
+    this.setToken();
+    return this.http.get(this._url +'api/game/train-wall' + this._token)
+      .map(res => res.json());
+  }
+
+  trainDragon(){
+    this.setToken();
+    return this.http.get(this._url +'api/game/train-dragon' + this._token)
       .map(res => res.json());
   }
 
