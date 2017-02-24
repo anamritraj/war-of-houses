@@ -33,6 +33,8 @@ export class User{
 
   attack:number;
   defence:number;
+
+  overall_points: number;
   fb_id: string;
   fb_access_token: string;
 
