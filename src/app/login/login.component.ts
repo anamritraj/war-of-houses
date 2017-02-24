@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
 
     this._gameUserService.getGameUser().subscribe((res) =>{
       console.log(res);
-      if(Object.keys(res).length == 0){
+      if(Object.keys(res).length == 0 || !res.house_name){
         //User is not registered for the game
         this.show_RegisterForm();
         console.log("Register form shown");
