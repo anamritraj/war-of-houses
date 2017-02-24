@@ -74,6 +74,12 @@ export class GameUserService {
       .map(res => res.json());
   }
 
+  createWorker(){
+    this.setToken();
+    return this.http.get(this._url +'api/game/create-worker' + this._token)
+      .map(res => res.json());
+  }
+
   register(house_name: string){
     console.log(house_name);
    this.setToken();

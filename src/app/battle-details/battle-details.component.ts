@@ -23,8 +23,7 @@ export class BattleDetailsComponent implements OnInit {
   canTrainGiant: boolean;
   canTrainDragons: boolean;
   canTrainWall: boolean;
-
-
+  canTrainWorker: boolean;
 
   constructor(
     private _gameService: GameUserService,
@@ -44,7 +43,7 @@ export class BattleDetailsComponent implements OnInit {
       case 1:
         // Update Food!
         this._gameService.claimFood().subscribe((res) => {
-          
+
           this.user.food = res.food;
         }, (err) => {
           if(err.status == 406){
@@ -60,7 +59,7 @@ export class BattleDetailsComponent implements OnInit {
       case 2:
         // Update Gold!
         this._gameService.claimGold().subscribe((res) => {
-          
+
           this.user.gold = res.gold;
         }, (err) => {
           if(err.status == 406){
@@ -75,7 +74,7 @@ export class BattleDetailsComponent implements OnInit {
       case 3:
         // Update Wood!
         this._gameService.claimWood().subscribe((res) => {
-          
+
           this.user.wood = res.wood;
         }, (err) => {
           if(err.status == 406){
@@ -92,7 +91,7 @@ export class BattleDetailsComponent implements OnInit {
       case 4:
         // Update Turns!
         this._gameService.claimTurns().subscribe((res) => {
-          
+
           this.user.turns = res.turns;
         }, (err) => {
           if(err.status == 406){
@@ -109,7 +108,30 @@ export class BattleDetailsComponent implements OnInit {
   }
 
   createWorker(){
-  //  create new worker!
+    // Create Worker
+    // Train Army
+    this._gameService.createWorker().subscribe(res => {
+
+      this.user.food = res.food;
+      this.user.gold = res.gold;
+      this.user.wood = res.wood;
+      this.user.workers = res.workers;
+      this.user.last_worker = res.last_worker;
+    },err =>{
+      if (err.status != 406) {
+        this._router.navigate(['/login']);
+      } else {
+        this.canTrainWorker = false;
+        let notification = {
+          type: "info",
+          message: 'You cannot create Worker now! You don\'t have the resources!',
+          title: "Hold your horses mate!",
+          showNotification: true
+        };
+        this.notification.emit(notification)
+      }
+    });
+
   }
 
   train(type){
@@ -117,7 +139,7 @@ export class BattleDetailsComponent implements OnInit {
       case 1:
         // Train Army
         this._gameService.trainArmy().subscribe(res => {
-          
+
           this.user.food = res.food;
           this.user.gold = res.gold;
           this.user.wood = res.wood;
@@ -135,7 +157,7 @@ export class BattleDetailsComponent implements OnInit {
       case 2:
         // Train Giant
         this._gameService.trainGiant().subscribe(res => {
-          
+
           this.user.food = res.food;
           this.user.gold = res.gold;
           this.user.wood = res.wood;
@@ -153,7 +175,7 @@ export class BattleDetailsComponent implements OnInit {
       case 3:
         // Train Wall
         this._gameService.trainWall().subscribe(res => {
-          
+
           this.user.food = res.food;
           this.user.gold = res.gold;
           this.user.wood = res.wood;
@@ -171,7 +193,7 @@ export class BattleDetailsComponent implements OnInit {
       case 4:
         // Train Dragon
         this._gameService.trainDragon().subscribe(res => {
-          
+
           this.user.food = res.food;
           this.user.gold = res.gold;
           this.user.wood = res.wood;
