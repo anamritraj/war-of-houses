@@ -13,6 +13,12 @@
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
 }
+.claim-buttons .btn.no-pill{
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+
 .claim-buttons .badge{
   position: relative;
   top:1px;

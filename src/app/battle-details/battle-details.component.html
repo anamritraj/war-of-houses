@@ -3,49 +3,49 @@
     <p class="text-center overall-points">Overall Points: 11133.34</p>
     <div class="row text-center battle-points">
       <div class="col-md-6">
-        <p class="my-0">Attack Points: 12344.34</p>
+        <p class="my-0">Attack Points: {{user.attack}}</p>
       </div>
       <div class="col-md-6">
-        <p class="my-0">Defence Points: 12344.34</p>
+        <p class="my-0">Defence Points: {{user.defence}}</p>
       </div>
     </div>
     <hr>
     <div class="row text-center battle-points">
       <div class="col-md-6">
-        <p class="my-2 align-middle">Food: 12344.34 </p>
-        <p class="my-2 align-middle">Gold: 12344.34 </p>
-        <p class="my-2 align-middle">Wood: 12344.34 </p>
-        <p class="my-2 align-middle">Turns: 12344.34 </p>
+        <p class="my-2 align-middle">Food: {{user.food}} </p>
+        <p class="my-2 align-middle">Gold: {{user.gold}} </p>
+        <p class="my-2 align-middle">Wood: {{user.wood}} </p>
+        <p class="my-2 align-middle">Turns: {{user.turns}} </p>
       </div>
       <div class="col-md-6 claim-buttons">
-        <button class="btn btn-primary btn-sm d-block my-1 mr-0">Claim Free Food (100)</button><span class="badge badge-default">3x</span>
-        <button class="btn btn-primary btn-sm d-block my-1">Claim Free Gold (100)</button><span class="badge badge-default">4x</span>
-        <button class="btn btn-primary btn-sm d-block my-1">Claim Free Wood (100)</button><span class="badge badge-default">7x</span>
-        <button class="btn btn-primary btn-sm d-block my-1">Claim Free Turns(100)</button><span class="badge badge-default">7x</span>
+        <button class="btn btn-primary btn-sm d-block my-1 mr-0 {{canClaimFood? '' : 'disabled'}}" (click)="claim(1)">Claim Free Food (100)</button><span class="badge badge-default">x{{user.food_x}}</span>
+        <button class="btn btn-primary btn-sm d-block my-1 {{canClaimGold? '' : 'disabled'}}" (click)="claim(2)">Claim Free Gold (100)</button><span class="badge badge-default">x{{user.gold_x}}</span>
+        <button class="btn btn-primary btn-sm d-block my-1 {{canClaimWood? '' : 'disabled'}}" (click)="claim(3)">Claim Free Wood (100)</button><span class="badge badge-default">x{{user.wood_x}}</span>
+        <button class="btn btn-primary btn-sm d-block my-1 {{canClaimTurns? '' : 'disabled'}}" (click)="claim(4)">Claim Free Turns(100)</button><span class="badge badge-default">1x</span>
       </div>
     </div>
     <hr>
     <div class="row text-center battle-points">
       <div class="col-md-6">
-        <p class="my-2 align-middle">Army: 12344.34 </p>
-        <p class="my-2 align-middle">Artillery: 12344.34 </p>
-        <p class="my-2 align-middle">Wall: 12344.34 </p>
-        <p class="my-2 align-middle">Dragons: 12344.34 </p>
+        <p class="my-2 align-middle">Army: {{user.army}}</p>
+        <p class="my-2 align-middle">Artillery: {{user.artillery}} </p>
+        <p class="my-2 align-middle">Wall: {{user.wall}} </p>
+        <p class="my-2 align-middle">Dragons: {{user.dragons}} </p>
       </div>
       <div class="col-md-6 claim-buttons">
-        <button class="btn btn-primary btn-sm d-block my-1 mr-0">Train Army (100)</button><span class="badge badge-default">3x</span>
-        <button class="btn btn-primary btn-sm d-block my-1">Train Artillery (100)</button><span class="badge badge-default">4x</span>
-        <button class="btn btn-primary btn-sm d-block my-1">Train Wall (100)</button><span class="badge badge-default">7x</span>
-        <button class="btn btn-primary btn-sm d-block my-1">Train Dragon(100)</button><span class="badge badge-default">7x</span>
+        <button class="btn btn-primary btn-sm d-block my-1 mr-0" (click)="train(1)">Train Army (100)</button><span class="badge badge-default">3x</span>
+        <button class="btn btn-primary btn-sm d-block my-1" (click)="train(2)">Train Artillery (100)</button><span class="badge badge-default">4x</span>
+        <button class="btn btn-primary btn-sm d-block my-1" (click)="train(3)">Train Wall (100)</button><span class="badge badge-default">7x</span>
+        <button class="btn btn-primary btn-sm d-block my-1" (click)="train(4)">Train Dragon(100)</button><span class="badge badge-default">7x</span>
       </div>
     </div>
     <hr>
     <div class="row text-center battle-points">
       <div class="col-md-6">
-        <p class="my-2 align-middle">Workers: 12344.34 </p>
+        <p class="my-2 align-middle">Workers: {{ user.workers }}</p>
       </div>
       <div class="col-md-6 claim-buttons">
-        <button class="btn btn-primary btn-sm d-block my-1 mr-0">Create New Worker</button><span class="badge badge-default">3x</span>
+        <button class="btn btn-primary btn-sm d-block my-1 mr-0" (click)="createWorker()">Create New Worker</button><span class="badge badge-default">3x</span>
       </div>
     </div>
 
