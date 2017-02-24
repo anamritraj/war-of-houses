@@ -1,11 +1,11 @@
 <br>
-<app-notifications [showNotification]="true" [message]="'Looks Like You have Registered!'" [title]="'Hi Brown Cow!'" [type]="'danger'"></app-notifications>
+<app-notifications [showNotification]="viewNotification" [message]="notificationTitle" [title]="notificaitonBody" [type]="notificationType"></app-notifications>
 <div class="row">
   <div class="col-md-4">
     <app-user-card [user]="user"></app-user-card>
   </div>
   <div class="col-md-8">
-    <app-battle-details></app-battle-details>
+    <app-battle-details [user]="user" (notification)="showNotification($event)"></app-battle-details>
   </div>
 </div>
 <br>
