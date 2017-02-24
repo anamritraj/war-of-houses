@@ -18,6 +18,11 @@ export class BattleDetailsComponent implements OnInit {
   canClaimWood: boolean;
   canClaimGold: boolean;
   canClaimTurns: boolean;
+  //can Train
+  canTrainArmy: boolean;
+  canTrainGiant: boolean;
+  canTrainDragons: boolean;
+  canTrainWall: boolean;
 
 
 
@@ -39,7 +44,7 @@ export class BattleDetailsComponent implements OnInit {
       case 1:
         // Update Food!
         this._gameService.claimFood().subscribe((res) => {
-          console.log(res);
+          
           this.user.food = res.food;
         }, (err) => {
           if(err.status == 406){
@@ -55,7 +60,7 @@ export class BattleDetailsComponent implements OnInit {
       case 2:
         // Update Gold!
         this._gameService.claimGold().subscribe((res) => {
-          console.log(res);
+          
           this.user.gold = res.gold;
         }, (err) => {
           if(err.status == 406){
@@ -70,7 +75,7 @@ export class BattleDetailsComponent implements OnInit {
       case 3:
         // Update Wood!
         this._gameService.claimWood().subscribe((res) => {
-          console.log(res);
+          
           this.user.wood = res.wood;
         }, (err) => {
           if(err.status == 406){
@@ -87,7 +92,7 @@ export class BattleDetailsComponent implements OnInit {
       case 4:
         // Update Turns!
         this._gameService.claimTurns().subscribe((res) => {
-          console.log(res);
+          
           this.user.turns = res.turns;
         }, (err) => {
           if(err.status == 406){
@@ -111,15 +116,75 @@ export class BattleDetailsComponent implements OnInit {
     switch (type){
       case 1:
         // Train Army
+        this._gameService.trainArmy().subscribe(res => {
+          
+          this.user.food = res.food;
+          this.user.gold = res.gold;
+          this.user.wood = res.wood;
+          this.user.army = res.army;
+        },err =>{
+          if(err.status == 406){
+            this.canTrainArmy = false;
+            let notification = {type: "info", message: 'You cannot Train Army now! You don\'t have the resources!', title: "Hold your horses mate!", showNotification: true};
+            this.notification.emit(notification)
+          }else{
+            this._router.navigate(['/login']);
+          }
+        });
         break;
       case 2:
-        // Train Artillery
+        // Train Giant
+        this._gameService.trainGiant().subscribe(res => {
+          
+          this.user.food = res.food;
+          this.user.gold = res.gold;
+          this.user.wood = res.wood;
+          this.user.giants = res.giants;
+        },err =>{
+          if(err.status == 406){
+            this.canTrainGiant = false;
+            let notification = {type: "info", message: 'You cannot Train Giant now! You don\'t have the resources!', title: "Hold your horses mate!", showNotification: true};
+            this.notification.emit(notification)
+          }else{
+            this._router.navigate(['/login']);
+          }
+        });
         break;
       case 3:
         // Train Wall
+        this._gameService.trainWall().subscribe(res => {
+          
+          this.user.food = res.food;
+          this.user.gold = res.gold;
+          this.user.wood = res.wood;
+          this.user.wall = res.wall;
+        },err =>{
+          if(err.status == 406){
+            this.canTrainWall = false;
+            let notification = {type: "info", message: 'You cannot Train Wall now! You don\'t have the resources!', title: "Hold your horses mate!", showNotification: true};
+            this.notification.emit(notification);
+          }else{
+            this._router.navigate(['/login']);
+          }
+        });
         break;
       case 4:
         // Train Dragon
+        this._gameService.trainDragon().subscribe(res => {
+          
+          this.user.food = res.food;
+          this.user.gold = res.gold;
+          this.user.wood = res.wood;
+          this.user.dragons = res.dragons;
+        },err =>{
+          if(err.status == 406){
+            this.canTrainDragons = false;
+            let notification = {type: "info", message: 'You cannot Train Dragons now! You don\'t have the resources!', title: "Hold your horses mate!", showNotification: true};
+            this.notification.emit(notification);
+          }else{
+            this._router.navigate(['/login']);
+          }
+        });
         break;
     }
     return;
