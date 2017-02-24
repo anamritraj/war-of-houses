@@ -9,7 +9,6 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { LoginComponent } from './login/login.component';
-import {SlimLoadingBarModule} from "ng2-slim-loading-bar";
 import { ProfileComponent } from './profile/profile.component';
 import { NotificationsComponent } from './notifications/notifications.component';
 import { BattleDetailsComponent } from './battle-details/battle-details.component';
@@ -19,23 +18,20 @@ import { UserCardComponent } from './user-card/user-card.component';
 
 @NgModule({
   declarations: [
-    NotificationsComponent,
     AppComponent,
     HeaderComponent,
     FooterComponent,
     LoginComponent,
     ProfileComponent,
-
     UserCardComponent,
-
-    BattleDetailsComponent
+    BattleDetailsComponent,
+    NotificationsComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    AppRoutingModule,
-    SlimLoadingBarModule
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
