@@ -7,8 +7,12 @@
   cursor: pointer;
 }
 
+.claim-buttons{
+  text-align: center;
+}
+
 .claim-buttons .btn{
-  min-width:170px;
+  min-width:130px;
   display: inline-block !important;
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
@@ -19,6 +23,11 @@
   border-bottom-right-radius: 3px;
 }
 
+.text-center span{
+  float: none;
+  margin: 0 auto;
+}
+
 .claim-buttons .badge{
   position: relative;
   top:1px;
@@ -27,8 +36,16 @@
   border-top-left-radius: 0;
 }
 
+.tooltip-data{
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 5px;
+  /*border: 1px solid #292929;*/
+  margin: 5px;
+}
+
 .tooltip-data span{
-  text-decoration: underline;
+  /*text-decoration: underline;*/
   cursor: pointer;
 }
 
