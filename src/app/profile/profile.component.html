@@ -2,7 +2,8 @@
 <app-notifications [showNotification]="viewNotification" [message]="notificationTitle" [title]="notificaitonBody" [type]="notificationType"></app-notifications>
 <div class="row">
   <div class="col-md-4">
-    <app-user-card [user]="user"></app-user-card>
+    <!--<app-user-card [user]="user"></app-user-card>-->
+    <app-leaderboard></app-leaderboard>
   </div>
   <div class="col-md-8">
     <app-battle-details [user]="user" (notification)="showNotification($event)"></app-battle-details>
