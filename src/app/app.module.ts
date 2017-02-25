@@ -15,6 +15,7 @@ import { BattleDetailsComponent } from './battle-details/battle-details.componen
 
 import { UserCardComponent } from './user-card/user-card.component';
 import { LeaderboardComponent } from './leaderboard/leaderboard.component';
+import { CountdownTimerComponent } from './countdown-timer/countdown-timer.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { LeaderboardComponent } from './leaderboard/leaderboard.component';
     UserCardComponent,
     BattleDetailsComponent,
     NotificationsComponent,
-    LeaderboardComponent
+    LeaderboardComponent,
+    CountdownTimerComponent
   ],
   imports: [
     BrowserModule,
