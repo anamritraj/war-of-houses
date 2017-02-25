@@ -75,12 +75,18 @@
 
 .twa-relieved {
   background-image: url("https://twemoji.maxcdn.com/svg/1f625.svg"); }
-
+.twa-crossed-swords{
+  background-image: url("https://twemoji.maxcdn.com/2/72x72/2694.png");
+}
 .twa-satisfied {
   background-image: url("https://twemoji.maxcdn.com/svg/1f60c.svg"); }
 
 .twa-grin {
   background-image: url("https://twemoji.maxcdn.com/svg/1f601.svg"); }
+
+.twa-wall{
+  background-image: url("https://twemoji.maxcdn.com/2/72x72/26f0.png");
+}
 
 .twa-wink {
   background-image: url("https://twemoji.maxcdn.com/svg/1f609.svg"); }
@@ -528,6 +534,9 @@
 
 .twa-ear {
   background-image: url("https://twemoji.maxcdn.com/svg/1f442.svg"); }
+.twa-coin{
+  background-image: url("https://twemoji.maxcdn.com/2/72x72/1f31f.png");
+}
 
 .twa-eyes {
   background-image: url("https://twemoji.maxcdn.com/svg/1f440.svg"); }
@@ -542,10 +551,7 @@
   background-image: url("https://twemoji.maxcdn.com/svg/1f48c.svg"); }
 
 .twa-bust-in-silhouette {
-  background-image: url("https://twemoji.maxcdn.com/svg/1f464.svg"); }
-
-.twa-busts-in-silhouette {
-  background-image: url("https://twemoji.maxcdn.com/svg/1f465.svg"); }
+  background-image: url("https://twemoji.maxcdn.com/2/72x72/1f468-1f3fc-200d-1f33e.png"); }
 
 .twa-speech-balloon {
   background-image: url("https://twemoji.maxcdn.com/svg/1f4ac.svg"); }
