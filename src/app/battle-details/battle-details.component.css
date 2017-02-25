@@ -26,3 +26,14 @@
   border-bottom-left-radius: 0;
   border-top-left-radius: 0;
 }
+
+.tooltip-data span{
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.twa{
+  position: relative;
+  top: 3px;
+  margin-right:5px;
+}

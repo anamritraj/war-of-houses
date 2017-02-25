@@ -13,10 +13,10 @@
     <hr>
     <div class="row text-center battle-points">
       <div class="col-md-6">
-        <p class="my-2 align-middle"><i class="twa twa-lg twa-poultry-leg"></i>Food : {{user.food}} </p>
-        <p class="my-2 align-middle"> <i class="twa twa-lg twa-dizzy"></i>Gold: {{user.gold}} </p>
-        <p class="my-2 align-middle"><i class="twa twa-lg twa-deciduous-tree"></i>Wood : {{user.wood}} </p>
-        <p class="my-2 align-middle">Turns: {{user.turns}} </p>
+        <p class="my-2 align-middle tooltip-data"><i class="twa twa-lg twa-poultry-leg"></i><span data-toggle="tooltip" data-html="true" title="{{CHARACTERS.food}}">Food</span> : {{user.food}} </p>
+        <p class="my-2 align-middle tooltip-data"> <i class="twa twa-lg twa-dizzy"></i><span data-toggle="tooltip" data-html="true" title="{{CHARACTERS.gold}}">Gold</span>: {{user.gold}} </p>
+        <p class="my-2 align-middle tooltip-data"><i class="twa twa-lg twa-deciduous-tree"></i><span data-toggle="tooltip" data-html="true" title="{{CHARACTERS.wood}}">Wood</span>: {{user.wood}} </p>
+        <p class="my-2 align-middle tooltip-data"><i class="twa twa-lg twa-arrows-counterclockwise"></i><span data-toggle="tooltip" data-html="true" title="{{CHARACTERS.turns}}">Turns</span>: {{user.turns}} </p>
       </div>
       <div class="col-md-6 claim-buttons">
         <button class="btn btn-primary btn-sm d-block my-1 mr-0" (click)="claim(1)">Claim Free Food (100)</button><span class="badge badge-default">x{{user.food_x}}</span>
@@ -28,10 +28,10 @@
     <hr>
     <div class="row text-center battle-points">
       <div class="col-md-6">
-        <p class="my-2 align-middle">Army: {{user.army}}</p>
-        <p class="my-2 align-middle">Giant: {{user.giants}} </p>
-        <p class="my-2 align-middle">Wall: {{user.wall}} </p>
-        <p class="my-2 align-middle">Dragons: {{user.dragons}} </p>
+        <p class="my-2 align-middle tooltip-data"><span data-toggle="tooltip" data-html="true" title="{{CHARACTERS.army}}">Army</span>: {{user.army}}</p>
+        <p class="my-2 align-middle tooltip-data"><span data-toggle="tooltip" data-html="true" title="{{CHARACTERS.giant}}">Giants</span>: {{user.giants}} </p>
+        <p class="my-2 align-middle tooltip-data"><span data-toggle="tooltip" data-html="true" title="{{CHARACTERS.wall}}">Wall</span>: {{user.wall}} </p>
+        <p class="my-2 align-middle tooltip-data"><span data-toggle="tooltip" data-html="true" title="{{CHARACTERS.dragon}}">Dragons</span>: {{user.dragons}} </p>
       </div>
       <div class="col-md-6 claim-buttons">
         <button class="btn btn-primary btn-sm d-block my-1 mr-0" (click)="train(1)">Train Army (100)</button><span class="badge badge-default">3x</span>
@@ -43,7 +43,7 @@
     <hr>
     <div class="row text-center battle-points">
       <div class="col-md-6">
-        <p class="my-2 align-middle"> <i class="twa twa-lg twa-construction-worker"></i>Workers: {{ user.workers }}</p>
+        <p class="my-2 align-middle tooltip-data"> <i class="twa twa-lg twa-construction-worker"></i><span data-toggle="tooltip" data-html="true" title="{{CHARACTERS.worker}}">Worker</span>: {{ user.workers }}</p>
       </div>
       <div class="col-md-6 claim-buttons">
         <button class="btn btn-primary btn-sm d-block my-1 mr-0" (click)="createWorker()">Create New Worker</button><span class="badge badge-default">3x</span>
@@ -79,9 +79,5 @@
       </div>
 
     </div>
-
-
-
-
   </div>
 </div>

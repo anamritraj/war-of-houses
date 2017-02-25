@@ -2,7 +2,7 @@ import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import {User} from "../shared/user.model";
 import {Router} from "@angular/router";
 import {GameUserService} from "../services/game-user.service";
-
+import {CHARACTERS} from "../shared/characters.model";
 @Component({
   selector: 'app-battle-details',
   templateUrl: './battle-details.component.html',
@@ -12,7 +12,7 @@ import {GameUserService} from "../services/game-user.service";
 export class BattleDetailsComponent implements OnInit {
   @Input() user: User;
   @Output() notification = new EventEmitter();
-
+  CHARACTERS:any = CHARACTERS;
   constructor(
     private _gameService: GameUserService,
     private _router: Router
@@ -236,8 +236,8 @@ export class BattleDetailsComponent implements OnInit {
           break;
       }
     }, error => {
-      console.log(error);
-    })
+      this._router.navigate(['/login'])
+;    })
 
   }
 
