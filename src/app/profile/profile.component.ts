@@ -17,10 +17,14 @@ export class ProfileComponent implements OnInit {
   notificaitonBody: string;
   notificationType: string;
   viewNotification: boolean;
+  showUserCard: boolean;
+
   constructor(
     private _gameUserService: GameUserService,
     private _router: Router,
-  ){}
+  ){
+    this.showUserCard = true;
+  }
 
   ngOnInit() {
 
@@ -52,6 +56,10 @@ export class ProfileComponent implements OnInit {
         this.viewNotification = true;
       }
     this.user = attackDetails.user;
+  }
+
+  userCardClick(){
+    this.showUserCard = !this.showUserCard;
   }
 
   showNotification(noti){
