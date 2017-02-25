@@ -3,6 +3,8 @@ import {GameUserService} from "../services/game-user.service";
 import {User} from "../shared/user.model";
 import {Router} from "@angular/router";
 
+declare var jQuery:any;
+
 @Component({
   selector: 'app-leaderboard',
   templateUrl: './leaderboard.component.html',
@@ -30,6 +32,7 @@ export class LeaderboardComponent implements OnInit {
     this._gameService.getBriefLeaderboard(this.page = 1).subscribe(result => {
       console.log(result);
       this.leaderboardObjects = result;
+      // jQuery(".leaderboard li");
     },error =>{
       console.log(error);
     })

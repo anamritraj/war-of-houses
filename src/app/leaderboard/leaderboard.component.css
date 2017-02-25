@@ -52,3 +52,8 @@
 .leaderboard::-webkit-scrollbar-corner {
   background-color: #000
 }
+
+button .twa{
+  top: 2px;
+  position: relative;
+}
