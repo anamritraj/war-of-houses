@@ -111,10 +111,15 @@ export class GameUserService {
     }
   }
 
+  getBriefLeaderboard(page: number){
+    this.setToken();
+    return this.http.get(this._url +'api/game/brief-leaderboard/'+page+this._token)
+      .map(res => res.json());
+  }
+
   register(house_name: string){
-    console.log(house_name);
-   this.setToken();
+    this.setToken();
     return this.http.post(this._url +'api/game/user'+this._token, { house_name: house_name })
-    .map(res => res.json());
+      .map(res => res.json());
   }
 }
