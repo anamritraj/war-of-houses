@@ -1,3 +1,4 @@
+<h4 class="text-center">Your Stats</h4>
 <div class="card">
   <div class="card-block">
     <p class="text-center overall-points">Overall Points: {{user.overall_points}}</p>
@@ -12,9 +13,9 @@
     <hr>
     <div class="row text-center battle-points">
       <div class="col-md-6">
-        <p class="my-2 align-middle">Food: {{user.food}} </p>
-        <p class="my-2 align-middle">Gold: {{user.gold}} </p>
-        <p class="my-2 align-middle">Wood: {{user.wood}} </p>
+        <p class="my-2 align-middle"><i class="twa twa-lg twa-poultry-leg"></i>Food : {{user.food}} </p>
+        <p class="my-2 align-middle"> <i class="twa twa-lg twa-dizzy"></i>Gold: {{user.gold}} </p>
+        <p class="my-2 align-middle"><i class="twa twa-lg twa-deciduous-tree"></i>Wood : {{user.wood}} </p>
         <p class="my-2 align-middle">Turns: {{user.turns}} </p>
       </div>
       <div class="col-md-6 claim-buttons">
@@ -42,7 +43,7 @@
     <hr>
     <div class="row text-center battle-points">
       <div class="col-md-6">
-        <p class="my-2 align-middle">Workers: {{ user.workers }}</p>
+        <p class="my-2 align-middle"> <i class="twa twa-lg twa-construction-worker"></i>Workers: {{ user.workers }}</p>
       </div>
       <div class="col-md-6 claim-buttons">
         <button class="btn btn-primary btn-sm d-block my-1 mr-0" (click)="createWorker()">Create New Worker</button><span class="badge badge-default">3x</span>
