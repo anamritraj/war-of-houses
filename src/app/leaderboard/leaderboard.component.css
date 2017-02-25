@@ -32,3 +32,23 @@
 .refresh:hover {
   color: #ff8900;
 }
+
+.leaderboard::-webkit-scrollbar {
+  width: 5px
+}
+
+.leaderboard::-webkit-scrollbar-track {
+  background-color: rgba(0,0,0,.1)
+}
+
+.leaderboard::-webkit-scrollbar-thumb {
+  background-color: rgba(9, 0, 29, 0.64)
+}
+
+.leaderboard::-webkit-scrollbar-button {
+  background-color: #444444
+}
+
+.leaderboard::-webkit-scrollbar-corner {
+  background-color: #000
+}
