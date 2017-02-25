@@ -10,3 +10,13 @@
   display: -webkit-box;
   padding:.2rem 1rem;
 }
+.attack-widget input {
+  width: 40px;
+  text-align: center;
+  position: relative;
+  top: 3px;
+}
+.col-md-4{
+  padding:0;
+  text-align: center;
+}
