@@ -23,6 +23,10 @@ export class LeaderboardComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.updateLeaderBoard();
+  }
+
+  updateLeaderBoard(){
     this._gameService.getBriefLeaderboard(this.page = 1).subscribe(result => {
       console.log(result);
       this.leaderboardObjects = result;
@@ -51,7 +55,6 @@ export class LeaderboardComponent implements OnInit {
   }
 
   attackUser(user){
-    console.log(user);
     if(user.turns > this.currentUser.turns)
       user.turns = this.currentUser.turns;
     let data = {
@@ -62,6 +65,7 @@ export class LeaderboardComponent implements OnInit {
     this._gameService.attack(data).subscribe(result => {
       this.currentUser = result.user;
       this.attackDetails.emit(result);
+      this.updateLeaderBoard();
     }, error => {
         console.log(error + "Error during attack!")
         this._router.navigate(['/login']);

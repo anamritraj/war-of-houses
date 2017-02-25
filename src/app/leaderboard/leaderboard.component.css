@@ -20,3 +20,15 @@
   padding:0;
   text-align: center;
 }
+.refresh {
+  float: right;
+  text-decoration: underline;
+  font-size: 14px;
+  color: #fb9f25;
+  cursor: pointer;
+  position: relative;
+  top: 5px;
+}
+.refresh:hover {
+  color: #ff8900;
+}
