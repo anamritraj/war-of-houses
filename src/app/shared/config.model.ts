@@ -8,10 +8,10 @@ export const GlobalConfig = {
 
 function getBaseAPIUrl(){
 	if(environment.production) {
-		return "http://eclectika.org/api/";
+		return "http://eclectika.org/apiv2/";
 	}else{
-		return "http://localhost/auth-api/public/"; 
-	}	
+		return "http://localhost/auth-api/public/";
+	}
 }
 
 function getAppID(){
@@ -19,5 +19,5 @@ function getAppID(){
 		return "368783520143664"; // Eclectika 2017
 	}else{
 		return "600482030137703"; //Eclectika Beta 2017
-	}	
+	}
 }
