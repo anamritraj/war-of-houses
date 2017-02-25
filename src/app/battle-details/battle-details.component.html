@@ -19,10 +19,10 @@
         <p class="my-2 align-middle">Turns: {{user.turns}} </p>
       </div>
       <div class="col-md-6 claim-buttons">
-        <button class="btn btn-primary btn-sm d-block my-1 mr-0 {{canClaimFood? '' : 'disabled'}}" (click)="claim(1)">Claim Free Food (100)</button><span class="badge badge-default">x{{user.food_x}}</span>
-        <button class="btn btn-primary btn-sm d-block my-1 {{canClaimGold? '' : 'disabled'}}" (click)="claim(2)">Claim Free Gold (100)</button><span class="badge badge-default">x{{user.gold_x}}</span>
-        <button class="btn btn-primary btn-sm d-block my-1 {{canClaimWood? '' : 'disabled'}}" (click)="claim(3)">Claim Free Wood (100)</button><span class="badge badge-default">x{{user.wood_x}}</span>
-        <button class="btn btn-primary btn-sm d-block my-1 {{canClaimTurns? '' : 'disabled'}}" (click)="claim(4)">Claim Free Turns(100)</button><span class="badge badge-default">1x</span>
+        <button class="btn btn-primary btn-sm d-block my-1 mr-0" (click)="claim(1)">Claim Free Food (100)</button><span class="badge badge-default">x{{user.food_x}}</span>
+        <button class="btn btn-primary btn-sm d-block my-1" (click)="claim(2)">Claim Free Gold (100)</button><span class="badge badge-default">x{{user.gold_x}}</span>
+        <button class="btn btn-primary btn-sm d-block my-1" (click)="claim(3)">Claim Free Wood (100)</button><span class="badge badge-default">x{{user.wood_x}}</span>
+        <button class="btn btn-primary btn-sm d-block my-1" (click)="claim(4)">Claim Free Turns(100)</button><span class="badge badge-default">1x</span>
       </div>
     </div>
     <hr>

@@ -13,32 +13,17 @@ export class BattleDetailsComponent implements OnInit {
   @Input() user: User;
   @Output() notification = new EventEmitter();
 
-  //Can Claim
-  canClaimFood: boolean;
-  canClaimWood: boolean;
-  canClaimGold: boolean;
-  canClaimTurns: boolean;
-  //can Train
-  canTrainArmy: boolean;
-  canTrainGiant: boolean;
-  canTrainDragons: boolean;
-  canTrainWall: boolean;
-  canTrainWorker: boolean;
-
   constructor(
     private _gameService: GameUserService,
     private _router: Router
   ) {
-    this.canClaimFood = true;
-    this.canClaimGold = true;
-    this.canClaimTurns = true;
-    this.canClaimWood = true;
   }
 
   ngOnInit() {
   }
 
   claim(type: number){
+    this.hideNotification();
     switch (type){
       case 1:
         // Update Food!
@@ -47,9 +32,8 @@ export class BattleDetailsComponent implements OnInit {
           this.user.food = res.food;
         }, (err) => {
           if(err.status == 406){
-            this.canClaimFood = false;
             let notification = {type: "info", message: 'You cannot claim Food now!', title: "Hold your horses mate!", showNotification: true};
-            this.notification.emit(notification)
+            this.showNotification(notification);
           }else{
             this._router.navigate(['/login']);
           }
@@ -63,7 +47,6 @@ export class BattleDetailsComponent implements OnInit {
           this.user.gold = res.gold;
         }, (err) => {
           if(err.status == 406){
-            this.canClaimGold= false;
             console.log('You cannot claim now!');
             this.notification.emit({type: "warning", message: 'You cannot claim Gold now!', title: "Hold your horses mate!", showNotification: true})
           }else{
@@ -78,7 +61,6 @@ export class BattleDetailsComponent implements OnInit {
           this.user.wood = res.wood;
         }, (err) => {
           if(err.status == 406){
-            this.canClaimWood = false;
             console.log('You cannot claim now!');
             this.notification.emit({type: "danger", message: 'You cannot claim Wood now!', title: "Hold your horses mate!", showNotification: true})
 
@@ -95,7 +77,6 @@ export class BattleDetailsComponent implements OnInit {
           this.user.turns = res.turns;
         }, (err) => {
           if(err.status == 406){
-            this.canClaimTurns = false;
             console.log('You cannot claim now!');
             this.notification.emit({type: "info", message: 'You cannot claim turns now!', title: "Hold your horses mate!", showNotification: true})
           }else{
@@ -108,8 +89,7 @@ export class BattleDetailsComponent implements OnInit {
   }
 
   createWorker(){
-    // Create Worker
-    // Train Army
+    this.hideNotification();
     this._gameService.createWorker().subscribe(res => {
 
       this.user.food = res.food;
@@ -121,20 +101,20 @@ export class BattleDetailsComponent implements OnInit {
       if (err.status != 406) {
         this._router.navigate(['/login']);
       } else {
-        this.canTrainWorker = false;
         let notification = {
           type: "info",
           message: 'You cannot create Worker now! You don\'t have the resources!',
           title: "Hold your horses mate!",
           showNotification: true
         };
-        this.notification.emit(notification)
+        this.showNotification(notification);
       }
     });
 
   }
 
   train(type){
+    this.hideNotification();
     switch (type){
       case 1:
         // Train Army
@@ -149,9 +129,8 @@ export class BattleDetailsComponent implements OnInit {
           this.user.army = res.army;
         },err =>{
           if(err.status == 406){
-            this.canTrainArmy = false;
             let notification = {type: "info", message: 'You cannot Train Army now! You don\'t have the resources!', title: "Hold your horses mate!", showNotification: true};
-            this.notification.emit(notification)
+            this.showNotification(notification);
           }else{
             this._router.navigate(['/login']);
           }
@@ -170,9 +149,8 @@ export class BattleDetailsComponent implements OnInit {
           this.user.giants = res.giants;
         },err =>{
           if(err.status == 406){
-            this.canTrainGiant = false;
             let notification = {type: "info", message: 'You cannot Train Giant now! You don\'t have the resources!', title: "Hold your horses mate!", showNotification: true};
-            this.notification.emit(notification)
+            this.showNotification(notification);
           }else{
             this._router.navigate(['/login']);
           }
@@ -191,9 +169,8 @@ export class BattleDetailsComponent implements OnInit {
           this.user.wall = res.wall;
         },err =>{
           if(err.status == 406){
-            this.canTrainWall = false;
             let notification = {type: "info", message: 'You cannot Train Wall now! You don\'t have the resources!', title: "Hold your horses mate!", showNotification: true};
-            this.notification.emit(notification);
+            this.showNotification(notification);
           }else{
             this._router.navigate(['/login']);
           }
@@ -212,9 +189,8 @@ export class BattleDetailsComponent implements OnInit {
           this.user.dragons = res.dragons;
         },err =>{
           if(err.status == 406){
-            this.canTrainDragons = false;
             let notification = {type: "info", message: 'You cannot Train Dragons now! You don\'t have the resources!', title: "Hold your horses mate!", showNotification: true};
-            this.notification.emit(notification);
+            this.showNotification(notification);
           }else{
             this._router.navigate(['/login']);
           }
@@ -263,5 +239,17 @@ export class BattleDetailsComponent implements OnInit {
       console.log(error);
     })
 
+  }
+
+
+  showNotification(notification){
+    this.notification.emit(notification);
+  }
+
+  hideNotification(){
+    let notification = {
+      showNotification : false
+    };
+    this.notification.emit(notification);
   }
 }

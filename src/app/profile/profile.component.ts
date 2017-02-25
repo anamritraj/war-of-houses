@@ -55,14 +55,15 @@ export class ProfileComponent implements OnInit {
   }
 
   showNotification(noti){
-    console.log(noti);
-    this.notificationTitle = noti.message;
-    this.notificaitonBody = noti.title;
-    this.notificationType = noti.type;
-    this.viewNotification = true;
+      console.log(noti);
+      this.notificationTitle = noti.message;
+      this.notificaitonBody = noti.title;
+      this.notificationType = noti.type;
+      this.viewNotification = true;
   }
 
   hideNotification() {
-    this.viewNotification = false;
+      this.viewNotification = false;
+      console.log("hiden");
   }
   }
