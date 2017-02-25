@@ -37,12 +37,32 @@ export class ProfileComponent implements OnInit {
       this._router.navigate(['/login']);
     });
   }
+  onAttack(attackDetails){
+      this.hideNotification();
+      if(attackDetails.success == true){
+        this.notificationTitle = "Your won the battle! You gained "+ attackDetails.food_damage
+          +" Food, "+attackDetails.gold_damage+" Gold and "+ attackDetails.wood_damage+" Wood!";
+        this.notificaitonBody = "Success!!!";
+        this.notificationType = "success";
+        this.viewNotification = true;
+      }else{
+        this.notificationTitle = "Your lost the battle!!";
+        this.notificaitonBody = "You failed!";
+        this.notificationType = "warning";
+        this.viewNotification = true;
+      }
+    this.user = attackDetails.user;
+  }
 
   showNotification(noti){
     console.log(noti);
     this.notificationTitle = noti.message;
     this.notificaitonBody = noti.title;
     this.notificationType = noti.type;
-    this.viewNotification =  true;
+    this.viewNotification = true;
   }
-}
+
+  hideNotification() {
+    this.viewNotification = false;
+  }
+  }

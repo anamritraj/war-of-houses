@@ -1,6 +1,7 @@
-import {Component, OnInit, Input} from '@angular/core';
+import {Component, OnInit, Input, EventEmitter, Output} from '@angular/core';
 import {GameUserService} from "../services/game-user.service";
 import {User} from "../shared/user.model";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-leaderboard',
@@ -10,9 +11,13 @@ import {User} from "../shared/user.model";
 export class LeaderboardComponent implements OnInit {
   page: number;
   leaderboardObjects = [];
+
   @Input() currentUser: User;
+  @Output() attackDetails = new EventEmitter();
   constructor(
-    private _gameService: GameUserService
+    private _gameService: GameUserService,
+    private _router: Router
+
   ) {
     this.page = 1;
   }
@@ -36,8 +41,8 @@ export class LeaderboardComponent implements OnInit {
 
   increaseTurns(userObject){
     if(userObject.turns){
-      if(userObject.turns + 1 <= this.currentUser.turns)
-        userObject.turns += 1;
+      if(parseInt(userObject.turns)+ 1 <= this.currentUser.turns)
+        userObject.turns = parseInt(userObject.turns)+ 1;
       else
         userObject.turns = this.currentUser.turns;
     }else{
@@ -47,6 +52,19 @@ export class LeaderboardComponent implements OnInit {
 
   attackUser(user){
     console.log(user);
-  //  TODO Perform an attack!
+    if(user.turns > this.currentUser.turns)
+      user.turns = this.currentUser.turns;
+    let data = {
+      'attackedOn' : user.ec_id,
+      'turns': user.turns
+    };
+
+    this._gameService.attack(data).subscribe(result => {
+      this.currentUser = result.user;
+      this.attackDetails.emit(result);
+    }, error => {
+        console.log(error + "Error during attack!")
+        this._router.navigate(['/login']);
+    })
   }
 }
