@@ -103,7 +103,7 @@ export class BattleDetailsComponent implements OnInit {
       } else {
         let notification = {
           type: "info",
-          message: 'You cannot create Worker now! You don\'t have the resources!',
+          message: 'You cannot create Worker now! It\'s not the right time yet!',
           title: "Hold your horses mate!",
           showNotification: true
         };
