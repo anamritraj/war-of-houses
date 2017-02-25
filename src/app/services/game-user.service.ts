@@ -117,6 +117,12 @@ export class GameUserService {
       .map(res => res.json());
   }
 
+  attack(data){
+    this.setToken();
+    return this.http.post(this._url +'api/game/attack'+this._token, data)
+      .map(res => res.json());
+  }
+
   register(house_name: string){
     this.setToken();
     return this.http.post(this._url +'api/game/user'+this._token, { house_name: house_name })
