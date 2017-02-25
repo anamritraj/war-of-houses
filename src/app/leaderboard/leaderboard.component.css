@@ -1,0 +1,12 @@
+.leaderboard{
+  max-height: 88vh;
+  overflow: scroll;
+  overflow-x: hidden;
+}
+.btn{
+  cursor: pointer;
+}
+.list-group-item {
+  display: -webkit-box;
+  padding:.2rem 1rem;
+}

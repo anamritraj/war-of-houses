@@ -14,6 +14,7 @@ import { NotificationsComponent } from './notifications/notifications.component'
 import { BattleDetailsComponent } from './battle-details/battle-details.component';
 
 import { UserCardComponent } from './user-card/user-card.component';
+import { LeaderboardComponent } from './leaderboard/leaderboard.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { UserCardComponent } from './user-card/user-card.component';
     ProfileComponent,
     UserCardComponent,
     BattleDetailsComponent,
-    NotificationsComponent
+    NotificationsComponent,
+    LeaderboardComponent
   ],
   imports: [
     BrowserModule,
