@@ -68,6 +68,20 @@ app-countdown-timer{
   top: 3px;
   margin-right:5px;
 }
+.refresh {
+  float: right;
+  text-decoration: underline;
+  font-size: 14px;
+  color: #fb9f25;
+  cursor: pointer;
+  position: relative;
+  top: 5px;
+  user-select: none;
+}
+.refresh:hover {
+  color: #ff8900;
+}
+
 @media screen and (max-width: 768px){
   .claim-buttons{
     margin-top: 10px;

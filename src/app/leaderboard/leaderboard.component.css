@@ -32,6 +32,7 @@
   cursor: pointer;
   position: relative;
   top: 5px;
+  user-select: none;
 }
 .refresh:hover {
   color: #ff8900;
@@ -56,7 +57,9 @@
 .leaderboard::-webkit-scrollbar-corner {
   background-color: #000
 }
-
+.attack-widget input {
+  border: 1px solid #e4e4e4;
+}
 button .twa{
   top: 2px;
   position: relative;
