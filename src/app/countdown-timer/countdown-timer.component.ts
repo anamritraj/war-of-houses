@@ -1,4 +1,4 @@
-import {Component, OnInit, Input} from '@angular/core';
+import {Component, Input, OnChanges, SimpleChanges} from '@angular/core';
 import DateTimeFormat = Intl.DateTimeFormat;
 import {Observable} from "rxjs";
 
@@ -7,7 +7,7 @@ import {Observable} from "rxjs";
   templateUrl: './countdown-timer.component.html',
   styleUrls: ['./countdown-timer.component.css']
 })
-export class CountdownTimerComponent implements OnInit {
+export class CountdownTimerComponent implements OnChanges{
 
   @Input() time: string;
   futureTime : Date;
@@ -16,7 +16,10 @@ export class CountdownTimerComponent implements OnInit {
   constructor() { }
 
   countdown(t){
-    var hours, minutes, seconds;
+    if(t < 0){
+      return "Claim Now!";
+    }
+    let hours, minutes, seconds;
     hours = Math.floor(t / 3600) % 24;
     t -= hours * 3600;
     minutes = Math.floor(t / 60) % 60;
@@ -30,13 +33,20 @@ export class CountdownTimerComponent implements OnInit {
     ].join(' ');
   }
 
-  ngOnInit() {
-    this.futureTime = new Date(this.time);
-    Observable.interval(1000).map((x) => {
-      this.diff = Math.floor((this.futureTime.getTime() - new Date().getTime()) / 1000);
-    }).subscribe((x) => {
-      this.message = this.countdown(this.diff);
-    });
+  ngOnChanges(changes: SimpleChanges) {
+    console.log(this.time);
+    if(this.time){
+      this.futureTime = new Date(this.time);
+      console.log(this.futureTime);
+
+      Observable.interval(1000).map((x) => {
+        this.diff = Math.floor((this.futureTime.getTime() - new Date().getTime()) / 1000);
+      }).subscribe((x) => {
+        this.message = this.countdown(this.diff);
+      });
+    }else{
+      this.message = "";
+    }
   }
 
 }
