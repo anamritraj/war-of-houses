@@ -25,14 +25,20 @@
         <button class="btn btn-primary btn-sm d-block my-0" (click)="claim(2)">Claim Gold (100)</button><span class="badge badge-default">x{{user.gold_x}}</span>
         <button class="btn btn-primary btn-sm d-block my-0 no-pill" (click)="claim(4)">Claim Turns(100)</button>
       </div>
+      <div class="col-md-12 claim-times">
+        <span><app-countdown-timer [time]="next_food_refresh"></app-countdown-timer></span>
+        <span><app-countdown-timer [time]="next_wood_refresh"></app-countdown-timer></span>
+        <span><app-countdown-timer [time]="next_gold_refresh"></app-countdown-timer></span>
+        <span><app-countdown-timer [time]="next_turn_refresh"></app-countdown-timer></span>
+      </div>
   </div>
   <hr>
   <div class="row text-center battle-points">
       <div class="col-md-6">
-        <p class="my-2 align-middle tooltip-data"><span data-toggle="tooltip" data-html="true" title="{{CHARACTERS.army}}"><i class="twa twa-lg twa-bust-in-silhouette"></i>Army</span>: {{user.army}}</p>
-        <p class="my-2 align-middle tooltip-data"><span data-toggle="tooltip" data-html="true" title="{{CHARACTERS.giant}}"><i class="twa twa-lg twa-imp"></i>Giants</span>: {{user.giants}} </p>
-        <p class="my-2 align-middle tooltip-data"><span data-toggle="tooltip" data-html="true" title="{{CHARACTERS.wall}}"><i class="twa twa-lg twa-wall"></i>Wall</span>: {{user.wall}} </p>
-        <p class="my-2 align-middle tooltip-data"><span data-toggle="tooltip" data-html="true" title="{{CHARACTERS.dragon}}"><i class="twa twa-lg twa-dragon-face"></i>Dragons</span>: {{user.dragons}} </p>
+        <span data-toggle="tooltip" data-html="true" title="{{CHARACTERS.army}}"><p class="my-2 align-middle tooltip-data"><i class="twa twa-lg twa-bust-in-silhouette"></i>Army: {{user.army}}</p></span>
+        <span data-toggle="tooltip" data-html="true" title="{{CHARACTERS.giant}}"><p class="my-2 align-middle tooltip-data"><i class="twa twa-lg twa-imp"></i>Giants: {{user.giants}} </p></span>
+        <span data-toggle="tooltip" data-html="true" title="{{CHARACTERS.wall}}"><p class="my-2 align-middle tooltip-data"><i class="twa twa-lg twa-wall"></i>Wall: {{user.wall}} </p></span>
+        <span data-toggle="tooltip" data-html="true" title="{{CHARACTERS.dragon}}"><p class="my-2 align-middle tooltip-data"><i class="twa twa-lg twa-dragon-face"></i>Dragons: {{user.dragons}} </p></span>
       </div>
       <div class="col-md-6 claim-buttons">
         <button class="btn btn-primary btn-sm d-block my-1 mr-0 no-pill" (click)="train(1)">Train Army</button>
@@ -48,6 +54,7 @@
       </div>
       <div class="col-md-6 claim-buttons">
         <button class="btn btn-primary btn-sm d-block my-1 mr-0 no-pill" (click)="createWorker()">Create New Worker</button>
+        <span><app-countdown-timer [time]="next_food_refresh"></app-countdown-timer></span>
       </div>
     </div>
     <hr>
@@ -63,15 +70,6 @@
 
       <div class="col-md-4">
         <div class="worker-widget">
-          <button class="btn btn-primary btn-sm my-1 mr-0" (click)="decreaseWorker(2)">-</button>
-          <p class="d-inline-block">{{user.gold_x}}</p>
-          <button class="btn btn-primary btn-sm my-1 mr-0" (click)="increaseWorker(2)">+</button>
-        </div>
-        <p>Gold Workers</p>
-      </div>
-
-      <div class="col-md-4">
-        <div class="worker-widget">
           <button class="btn btn-primary btn-sm my-1 mr-0" (click)="decreaseWorker(3)">-</button>
           <p class="d-inline-block">{{user.wood_x}}</p>
           <button class="btn btn-primary btn-sm my-1 mr-0" (click)="increaseWorker(3)">+</button>
@@ -79,6 +77,14 @@
         <p>Wood Workers</p>
       </div>
 
+      <div class="col-md-4">
+        <div class="worker-widget">
+          <button class="btn btn-primary btn-sm my-1 mr-0" (click)="decreaseWorker(2)">-</button>
+          <p class="d-inline-block">{{user.gold_x}}</p>
+          <button class="btn btn-primary btn-sm my-1 mr-0" (click)="increaseWorker(2)">+</button>
+        </div>
+        <p>Gold Workers</p>
+      </div>
     </div>
   </div>
 </div>
