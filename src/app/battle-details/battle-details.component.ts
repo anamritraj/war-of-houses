@@ -38,7 +38,15 @@ export class BattleDetailsComponent implements OnInit {
     }, error => {
       console.log(error);
     });
+  }
 
+  updateStats(){
+    this._gameService.getGameUser().subscribe(res =>{
+      this.user = res;
+    }, errr => {
+      this._router.navigate(['/login']);
+
+    })
   }
 
   claim(type: number){
@@ -279,7 +287,6 @@ export class BattleDetailsComponent implements OnInit {
 ;    })
 
   }
-
 
   showNotification(notification){
     this.notification.emit(notification);
