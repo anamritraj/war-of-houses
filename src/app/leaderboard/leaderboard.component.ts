@@ -29,7 +29,6 @@ export class LeaderboardComponent implements OnInit {
 
   updateLeaderBoard(){
     this._gameService.getBriefLeaderboard(this.page = 1).subscribe(result => {
-      console.log(result);
       this.leaderboardObjects = result;
       // jQuery(".leaderboard li");
     },error =>{

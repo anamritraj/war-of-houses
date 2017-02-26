@@ -68,3 +68,8 @@ app-countdown-timer{
   top: 3px;
   margin-right:5px;
 }
+@media screen and (max-width: 768px){
+  .claim-buttons{
+    margin-top: 10px;
+  }
+}
