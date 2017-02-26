@@ -116,6 +116,11 @@ export class GameUserService {
     return this.http.get(this._url +'api/game/brief-leaderboard/'+page+this._token)
       .map(res => res.json());
   }
+  getRefreshTimes(){
+    this.setToken();
+    return this.http.get(this._url +'api/game/refresh-times'+this._token)
+      .map(res => res.json());
+  }
 
   attack(data){
     this.setToken();
