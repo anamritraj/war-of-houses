@@ -34,11 +34,8 @@ export class CountdownTimerComponent implements OnChanges{
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    console.log(this.time);
     if(this.time){
       this.futureTime = new Date(this.time);
-      console.log(this.futureTime);
-
       Observable.interval(1000).map((x) => {
         this.diff = Math.floor((this.futureTime.getTime() - new Date().getTime()) / 1000);
       }).subscribe((x) => {

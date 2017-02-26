@@ -29,7 +29,6 @@ export class ProfileComponent implements OnInit {
   ngOnInit() {
 
     this._gameUserService.getGameUser().subscribe((res) =>{
-      console.log(res);
       if(res.house_name){
         console.log(res);
         this.user = res;
@@ -44,7 +43,7 @@ export class ProfileComponent implements OnInit {
   onAttack(attackDetails){
       this.hideNotification();
       if(attackDetails.success == true){
-        this.notificationTitle = "Your won the battle! You gained "+ attackDetails.food_damage
+        this.notificationTitle = "Your won the battle!! You dealt "+attackDetails.damage_dealt+" damage and took "+ attackDetails.attack_taken+" damage! You gained "+ attackDetails.food_damage
           +" Food, "+attackDetails.gold_damage+" Gold and "+ attackDetails.wood_damage+" Wood!";
         this.notificaitonBody = "Success!!!";
         this.notificationType = "success";
