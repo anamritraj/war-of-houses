@@ -19,17 +19,23 @@
     </div>
   <hr>
   <div class="row">
-      <div class="col-md-12 claim-buttons">
+      <div class="col-md-3 claim-buttons">
         <button class="btn btn-primary btn-sm d-block my-0 mr-0" (click)="claim(1)">Claim Food (100)</button><span class="badge badge-default">x{{user.food_x}}</span>
-        <button class="btn btn-primary btn-sm d-block my-0" (click)="claim(3)">Claim Wood (100)</button><span class="badge badge-default">x{{user.wood_x}}</span>
-        <button class="btn btn-primary btn-sm d-block my-0" (click)="claim(2)">Claim Gold (100)</button><span class="badge badge-default">x{{user.gold_x}}</span>
-        <button class="btn btn-primary btn-sm d-block my-0 no-pill" (click)="claim(4)">Claim Turns(100)</button>
-      </div>
-      <div class="col-md-12 claim-times">
         <span><app-countdown-timer [time]="next_food_refresh"></app-countdown-timer></span>
-        <span><app-countdown-timer [time]="next_wood_refresh"></app-countdown-timer></span>
-        <span><app-countdown-timer [time]="next_gold_refresh"></app-countdown-timer></span>
-        <span><app-countdown-timer [time]="next_turn_refresh"></app-countdown-timer></span>
+      </div>
+    <div class="col-md-3 claim-buttons">
+        <button class="btn btn-primary btn-sm d-block my-0" (click)="claim(3)">Claim Wood (100)</button><span class="badge badge-default">x{{user.wood_x}}</span>
+      <span><app-countdown-timer [time]="next_wood_refresh"></app-countdown-timer></span>
+    </div>
+    <div class="col-md-3 claim-buttons">
+      <button class="btn btn-primary btn-sm d-block my-0" (click)="claim(2)">Claim Gold (100)</button><span class="badge badge-default">x{{user.gold_x}}</span>
+      <span><app-countdown-timer [time]="next_gold_refresh"></app-countdown-timer></span>
+    </div>
+    <div class="col-md-3 claim-buttons">
+      <button class="btn btn-primary btn-sm d-block my-0 no-pill" (click)="claim(4)">Claim Turns(100)</button>
+      <span><app-countdown-timer [time]="next_turn_refresh"></app-countdown-timer></span>
+    </div>
+    <div class="col-md-12 claim-times">
       </div>
   </div>
   <hr>
@@ -54,7 +60,7 @@
       </div>
       <div class="col-md-6 claim-buttons">
         <button class="btn btn-primary btn-sm d-block my-1 mr-0 no-pill" (click)="createWorker()">Create New Worker</button>
-        <span><app-countdown-timer [time]="next_food_refresh"></app-countdown-timer></span>
+        <span><app-countdown-timer [time]="next_worker_refresh"></app-countdown-timer></span>
       </div>
     </div>
     <hr>

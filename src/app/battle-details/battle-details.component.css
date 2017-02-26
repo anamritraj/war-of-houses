@@ -12,10 +12,11 @@
 }
 
 .claim-buttons .btn{
-  min-width:130px;
+  min-width: 120px;
   display: inline-block !important;
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
+  font-size: .8em;
 }
 .claim-buttons .btn.no-pill{
   border-top-right-radius: 3px;
@@ -23,6 +24,9 @@
   border-bottom-right-radius: 3px;
 }
 
+app-countdown-timer{
+  display: inline-block;
+}
 .text-center span{
   float: none;
   margin: 0 auto;
