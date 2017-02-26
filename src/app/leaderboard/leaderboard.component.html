@@ -1,19 +1,22 @@
 <h4 class="text-center">Leaderboard<span class="refresh" (click)="updateLeaderBoard()">Refresh</span></h4>
 <ul class="list-group leaderboard">
   <li class="list-group-item" *ngFor="let userObject of leaderboardObjects;">
-    <div class="col-md-8">
-      <p class="font-weight-bold mb-0">{{userObject.house_name}}</p>
-      <p class="mb-0 font-italic">@{{userObject.user.name}}</p>
-      <p class="mb-1">Overall Points: {{userObject.overall_points}}</p>
-    </div>
-    <div class="col-md-4" *ngIf="userObject.ec_id != currentUser.ec_id">
-      <div class="attack-widget">
-        <button class="btn btn-primary btn-sm my-1 mr-0" (click)="decreaseTurns(userObject)">-</button>
-        <input type="text" [(ngModel)]="userObject.turns">
-        <button class="btn btn-primary btn-sm my-1 mr-0" (click)="increaseTurns(userObject)">+</button>
+    <div class="row">
+      <div class="col-8">
+        <p class="font-weight-bold mb-0">{{userObject.house_name}}</p>
+        <p class="mb-0 font-italic">@{{userObject.user.name}}</p>
+        <p class="mb-1">Overall Points: {{userObject.overall_points}}</p>
       </div>
-      <p style="font-size: .7em; margin-bottom: 0;">Number of turns</p>
-      <button class="btn btn-sm" (click)="attackUser(userObject)"><i class="twa twa-lg twa-crossed-swords"></i> Attack</button>
+      <div class="col-4" *ngIf="userObject.ec_id != currentUser.ec_id">
+        <div class="attack-widget">
+          <button class="btn btn-primary btn-sm my-1 mr-0" (click)="decreaseTurns(userObject)">-</button>
+          <input type="text" [(ngModel)]="userObject.turns  ">
+          <button class="btn btn-primary btn-sm my-1 mr-0" (click)="increaseTurns(userObject)">+</button>
+        </div>
+        <p style="font-size: .7em; margin-bottom: 0;">Number of turns</p>
+        <button class="btn btn-sm" (click)="attackUser(userObject)"><i class="twa twa-lg twa-crossed-swords"></i> Attack</button>
+      </div>
     </div>
+
   </li>
 </ul>
