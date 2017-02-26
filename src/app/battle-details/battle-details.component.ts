@@ -26,6 +26,16 @@ export class BattleDetailsComponent implements OnInit {
   }
 
   ngOnInit() {
+    this._gameService.getRefreshTimes().subscribe(res => {
+      console.log(res);
+      this.next_food_refresh = res.next_food_at;
+      this.next_wood_refresh = res.next_wood_at;
+      this.next_gold_refresh = res.next_gold_at;
+      this.next_turn_refresh = res.next_turn_at;
+      this.next_worker_refresh = res.next_worker_at;
+    }, error => {
+      console.log(error);
+    });
 
   }
 
