@@ -28,6 +28,25 @@
 <body>
 <app-root>Loading...</app-root>
 
+<script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async='async'></script>
+<script>
+  var OneSignal = window.OneSignal || [];
+  OneSignal.push(["init", {
+    appId: "79ca2516-f477-4ae1-b9eb-bf97350d3580",
+    autoRegister: false, /* Set to true to automatically prompt visitors */
+    subdomainName: 'https://eclectika-game.onesignal.com',
+    /*
+     subdomainName: Use the value you entered in step 1.4: http://imgur.com/a/f6hqN
+     */
+    httpPermissionRequest: {
+      enable: true
+    },
+    notifyButton: {
+      enable: true /* Set to false to hide */
+    }
+  }]);
+</script>
+
 <script>
   $(function () {
     $('[data-toggle="tooltip"]').tooltip()
