@@ -2,8 +2,7 @@ import {Component, OnInit, Input, EventEmitter, Output} from '@angular/core';
 import {GameUserService} from "../services/game-user.service";
 import {User} from "../shared/user.model";
 import {Router} from "@angular/router";
-
-declare var jQuery:any;
+declare var ga: any;
 
 @Component({
   selector: 'app-leaderboard',
@@ -58,6 +57,10 @@ export class LeaderboardComponent implements OnInit {
   }
 
   attackUser(user){
+    ga('send', 'pageview', '/attack');
+    if(!user.turns){
+      user.turns = 1;
+    }
     if(user.turns > this.currentUser.turns)
       user.turns = this.currentUser.turns;
     let data = {
