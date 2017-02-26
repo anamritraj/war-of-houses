@@ -3,6 +3,7 @@ import {User} from "../shared/user.model";
 import {Router} from "@angular/router";
 import {GameUserService} from "../services/game-user.service";
 import {CHARACTERS} from "../shared/characters.model";
+
 @Component({
   selector: 'app-battle-details',
   templateUrl: './battle-details.component.html',
@@ -13,6 +14,11 @@ export class BattleDetailsComponent implements OnInit {
   @Input() user: User;
   @Output() notification = new EventEmitter();
   CHARACTERS:any = CHARACTERS;
+  next_food_refresh : string;
+  next_wood_refresh : string;
+  next_gold_refresh : string;
+  next_turn_refresh : string;
+  next_worker_refresh : string;
   constructor(
     private _gameService: GameUserService,
     private _router: Router
@@ -20,6 +26,7 @@ export class BattleDetailsComponent implements OnInit {
   }
 
   ngOnInit() {
+
   }
 
   claim(type: number){
@@ -28,12 +35,13 @@ export class BattleDetailsComponent implements OnInit {
       case 1:
         // Update Food!
         this._gameService.claimFood().subscribe((res) => {
-
           this.user.food = res.food;
+          this.next_food_refresh = res.next_food_at;
         }, (err) => {
           if(err.status == 406){
             let notification = {type: "info", message: 'You cannot claim Food now!', title: "Hold your horses mate!", showNotification: true};
             this.showNotification(notification);
+            this.next_food_refresh = err.json().next_food_at;
           }else{
             this._router.navigate(['/login']);
           }
@@ -45,9 +53,12 @@ export class BattleDetailsComponent implements OnInit {
         this._gameService.claimGold().subscribe((res) => {
 
           this.user.gold = res.gold;
+          this.next_gold_refresh = res.next_gold_at;
+
         }, (err) => {
           if(err.status == 406){
             console.log('You cannot claim now!');
+            this.next_gold_refresh = err.json().next_gold_at;
             this.notification.emit({type: "warning", message: 'You cannot claim Gold now!', title: "Hold your horses mate!", showNotification: true})
           }else{
             this._router.navigate(['/login']);
@@ -57,11 +68,12 @@ export class BattleDetailsComponent implements OnInit {
       case 3:
         // Update Wood!
         this._gameService.claimWood().subscribe((res) => {
-
           this.user.wood = res.wood;
+          this.next_wood_refresh = res.next_wood_at;
         }, (err) => {
           if(err.status == 406){
             console.log('You cannot claim now!');
+            this.next_wood_refresh = err.json().next_wood_at;
             this.notification.emit({type: "danger", message: 'You cannot claim Wood now!', title: "Hold your horses mate!", showNotification: true})
 
           }else{
@@ -73,11 +85,13 @@ export class BattleDetailsComponent implements OnInit {
       case 4:
         // Update Turns!
         this._gameService.claimTurns().subscribe((res) => {
-
+          this.next_turn_refresh = res.next_turn_at;
           this.user.turns = res.turns;
         }, (err) => {
           if(err.status == 406){
             console.log('You cannot claim now!');
+            this.next_turn_refresh = err.json().next_turn_at;
+
             this.notification.emit({type: "info", message: 'You cannot claim turns now!', title: "Hold your horses mate!", showNotification: true})
           }else{
             this._router.navigate(['/login']);
@@ -97,10 +111,13 @@ export class BattleDetailsComponent implements OnInit {
       this.user.wood = res.wood;
       this.user.workers = res.workers;
       this.user.last_worker = res.last_worker;
+      this.next_worker_refresh = res.next_worker_at;
+
     },err =>{
       if (err.status != 406) {
         this._router.navigate(['/login']);
       } else {
+        this.next_worker_refresh = err.json().next_worker_at;
         let notification = {
           type: "info",
           message: 'You cannot create Worker now! It\'s not the right time yet!',
