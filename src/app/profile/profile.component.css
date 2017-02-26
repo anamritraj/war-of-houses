@@ -7,3 +7,9 @@
   display: block;
   margin-top: 15px;
 }
+@media screen and (max-width: 768px){
+  .show-btn{
+    margin-bottom: 30px;
+  }
+}
+

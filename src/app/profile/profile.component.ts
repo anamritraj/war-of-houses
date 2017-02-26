@@ -30,7 +30,6 @@ export class ProfileComponent implements OnInit {
 
     this._gameUserService.getGameUser().subscribe((res) =>{
       if(res.house_name){
-        console.log(res);
         this.user = res;
       }else{
         this._router.navigate(['/login']);
@@ -43,14 +42,14 @@ export class ProfileComponent implements OnInit {
   onAttack(attackDetails){
       this.hideNotification();
       if(attackDetails.success == true){
-        this.notificationTitle = "Your won the battle!! You dealt "+attackDetails.damage_dealt+" damage and took "+ attackDetails.attack_taken+" damage! You gained "+ attackDetails.food_damage
+        this.notificationTitle = "You dealt "+attackDetails.damage_dealt+" damage and took "+ attackDetails.attack_taken+" damage! You gained "+ attackDetails.food_damage
           +" Food, "+attackDetails.gold_damage+" Gold and "+ attackDetails.wood_damage+" Wood!";
-        this.notificaitonBody = "Success!!!";
+        this.notificaitonBody = "Your won the battle!! ";
         this.notificationType = "success";
         this.viewNotification = true;
       }else{
-        this.notificationTitle = "Your lost the battle!!";
-        this.notificaitonBody = "You failed!";
+        this.notificationTitle = "You dealt "+attackDetails.damage_dealt+" damage and took "+ attackDetails.attack_taken+" damage!";
+        this.notificaitonBody = "You Lost the Battle!!!";
         this.notificationType = "warning";
         this.viewNotification = true;
       }
@@ -62,7 +61,7 @@ export class ProfileComponent implements OnInit {
   }
 
   showNotification(noti){
-      console.log(noti);
+      // console.log(noti);
       this.notificationTitle = noti.message;
       this.notificaitonBody = noti.title;
       this.notificationType = noti.type;
@@ -71,6 +70,6 @@ export class ProfileComponent implements OnInit {
 
   hideNotification() {
       this.viewNotification = false;
-      console.log("hiden");
+      // console.log("hiden");
   }
   }

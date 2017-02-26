@@ -4,7 +4,7 @@
   <div class="col-md-4">
     <app-user-card [user]="user" *ngIf="showUserCard"></app-user-card>
     <app-leaderboard [currentUser]="user" *ngIf="!showUserCard" (attackDetails)="onAttack($event)"></app-leaderboard>
-    <button (click)="userCardClick()" class="btn btn-sm btn-danger show-btn">Show {{!showUserCard? "User" : "Leaderboard"}}</button>
+    <button class="profile-show" (click)="userCardClick()" class="btn btn-sm btn-danger show-btn">Show {{!showUserCard? "User" : "Leaderboard"}}</button>
   </div>
   <div class="col-md-8">
     <app-battle-details [user]="user" (notification)="showNotification($event)"></app-battle-details>
