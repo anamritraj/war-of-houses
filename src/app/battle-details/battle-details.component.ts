@@ -152,6 +152,7 @@ export class BattleDetailsComponent implements OnInit {
     switch (type){
       case 1:
         // Train Army
+        ga('send', 'pageview', '/train/army');
         this._gameService.trainArmy().subscribe(res => {
 
           this.user.food = res.food;
@@ -165,7 +166,6 @@ export class BattleDetailsComponent implements OnInit {
           if(err.status == 406){
             let notification = {type: "info", message: 'You cannot Train Army now! You don\'t have the resources!', title: "Hold your horses mate!", showNotification: true};
             this.showNotification(notification);
-            ga('send', 'pageview', '/train/army');
           }else{
             this._router.navigate(['/login']);
           }
@@ -173,6 +173,7 @@ export class BattleDetailsComponent implements OnInit {
         break;
       case 2:
         // Train Giant
+        ga('send', 'pageview', '/train/giant');
         this._gameService.trainGiant().subscribe(res => {
 
           this.user.food = res.food;
@@ -185,7 +186,6 @@ export class BattleDetailsComponent implements OnInit {
         },err =>{
           if(err.status == 406){
             let notification = {type: "info", message: 'You cannot Train Giant now! You don\'t have the resources!', title: "Hold your horses mate!", showNotification: true};
-            ga('send', 'pageview', '/train/giant');
             this.showNotification(notification);
           }else{
             this._router.navigate(['/login']);
@@ -194,6 +194,7 @@ export class BattleDetailsComponent implements OnInit {
         break;
       case 3:
         // Train Wall
+        ga('send', 'pageview', '/train/wall');
         this._gameService.trainWall().subscribe(res => {
 
           this.user.food = res.food;
@@ -207,7 +208,6 @@ export class BattleDetailsComponent implements OnInit {
           if(err.status == 406){
             let notification = {type: "info", message: 'You cannot Train Wall now! You don\'t have the resources!', title: "Hold your horses mate!", showNotification: true};
             this.showNotification(notification);
-            ga('send', 'pageview', '/train/wall');
 
           }else{
             this._router.navigate(['/login']);
@@ -216,6 +216,7 @@ export class BattleDetailsComponent implements OnInit {
         break;
       case 4:
         // Train Dragon
+        ga('send', 'pageview', '/train/dragon');
         this._gameService.trainDragon().subscribe(res => {
 
           this.user.food = res.food;
@@ -229,7 +230,6 @@ export class BattleDetailsComponent implements OnInit {
           if(err.status == 406){
             let notification = {type: "info", message: 'You cannot Train Dragons now! You don\'t have the resources!', title: "Hold your horses mate!", showNotification: true};
             this.showNotification(notification);
-            ga('send', 'pageview', '/train/dragon');
           }else{
             this._router.navigate(['/login']);
           }
