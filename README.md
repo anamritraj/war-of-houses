@@ -1,31 +1,65 @@
-# Eclectika2017Game
+# War of Houses
 
-This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.15.
+Online Role Playing game using Angular 2 made for Eclectika 2017, The annual cultural fest of NIT Raipur.
 
-## Development server
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Getting Started
 
-## Code scaffolding
+### About the Game
+Aim in the game is simple! Get to the top of leaderboard!
+#### What to do?
+ - **Claim Items**: Every few minutes you will be able to claim some items on your profile. The counter will be only refreshed when you claim the items.
+ 
+- **Train Your Army**: You can train Army, Giant, Walls and Dragons! Hover over them to know more about their details! [If you don't see a tool-tip after hovering over them, just reload the page]
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive/pipe/service/class`.
+- **Attack! Attack! Attack!**: So you have trained your perfect army! Now is the time to challenge someone! 
 
-## Build
+Click Show Leaderboard and choose the number of times you want to attack the person, known as turns!
+
+BEWARE: Remember you will also get hurt in a battle. You will loose your Army, Giant etc. If you loose you will not gain anything. 
+
+If you WIN, You will get bonus Food, Wood and Gold from Enemy House
+
+Keep in mind, You wont get anything if the enemy team has no resources. Suppose if the enemy team has 0 Food, 20 Gold, 12 Wood. Then you will not get any Food as the enemy team is not having any!
+
+### Installing
+
+Copy this repository on you local machine. `cd` into the project folder.
+
+### Installing Dependencies
+Run `npm install`. This will install all the dependencies and developer dependencies for the project.
+
+## Configuration
+Goto `src/app/shared/config.model.ts`. This file contains various configuration parameters both for production and development env. Modify according to your needs. 
+### Development server
+Run `ng serve`for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+
+This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.15. Goto angular-cli repository to see all the options available.
+
+## Building and Deployment
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
 
-## Running unit tests
+Use this for a production build.
+```
+ng build --prod --aot --base-href="/war"
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Contributing
 
-## Running end-to-end tests
+When contributing to this repository, please first discuss the change you wish to make via issue or any other method with the owners of this repository before making a change.
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/). 
-Before running the tests make sure you are serving the app via `ng serve`.
+## Authors
 
-## Deploying to Github Pages
+- Anand Amrit Raj - *Initial Work* - [anamritraj](https://github.com/anamritraj).
 
-Run `ng github-pages:deploy` to deploy to Github Pages.
+## Licence
+
+This project is licensed under the MIT License.
 
 ## Further help
 
 To get more help on the `angular-cli` use `ng --help` or go check out the [Angular-CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+To get more help about the game logic and discussing furthur changes in the game, contact [me](mailto:hello@anandamritraj.in).
+
+*This README was updated on 07 March, 2017.*
