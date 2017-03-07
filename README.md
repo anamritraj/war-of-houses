@@ -1,3 +1,7 @@
+<p align="center">
+  <img style="float:none" src="http://eclectika.org/war/assets/img/logo.png"/>
+</p>
+
 # War of Houses
 
 Online Role Playing game using Angular 2 made for Eclectika 2017, The annual cultural fest of NIT Raipur.
